@@ -1,0 +1,167 @@
+{% extends "arthome.html" %}
+{% block body %}
+
+<head>
+    <style>
+        /* Importing fonts from Google */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        /* Reseting */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+        }
+
+        .wrapper {
+            max-width: 350px;
+            min-height: 400px;
+            margin: 80px auto;
+            padding: 40px 30px 30px 30px;
+            background-color: #ffffff;
+            border-radius: 5px;
+
+        }
+
+        .logo {
+            width: 80px;
+            margin: auto;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+
+        }
+
+        .wrapper .name {
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: 1.3px;
+            padding-left: 10px;
+            color: #555;
+        }
+
+        .wrapper .form-field input {
+            width: 100%;
+            display: block;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 1.2rem;
+            color: #666;
+            padding: 10px 15px 10px 10px;
+            /* border: 1px solid red; */
+        }
+
+        .wrapper .form-field {
+            padding-left: 10px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            box-shadow: inset 4px 4px 4px #cbced1, inset -4px -4px 4px #fff;
+        }
+
+        .wrapper .form-field .fas {
+            color: #555;
+        }
+
+        .wrapper .btn {
+
+            width: 100%;
+            height: 40px;
+            background-color: #03A9F4;
+            color: #fff;
+            border-radius: 25px;
+
+            letter-spacing: 1.3px;
+        }
+
+        .wrapper .btn:hover {
+            background-color: #039BE5;
+        }
+
+        .wrapper a {
+            text-decoration: none;
+            font-size: 0.8rem;
+            color: #03A9F4;
+        }
+
+        .wrapper a:hover {
+            color: #039BE5;
+        }
+
+        @media(max-width: 380px) {
+            .wrapper {
+                margin: 30px 20px;
+                padding: 40px 15px 15px 15px;
+            }
+        }
+
+
+
+        body {
+            /* Location of the image */
+
+
+            /* Background image is centered vertically and horizontally at all times */
+            background-position: center center;
+
+            /* Background image doesn't tile */
+            background-repeat: no-repeat;
+
+            /* Background image is fixed in the viewport so that it doesn't move when
+the content's height is greater than the image's height */
+            background-attachment: fixed;
+
+            /* This is what makes the background image rescale based
+on the container's size */
+            background-size: cover;
+
+            /* Set a background color
+while the background image is loading */
+            background-color: #F8FAFD;
+        }
+    </style>
+</head>
+
+<body style="background-image: url(); background-color: mediumslateblue;">
+    <div class="wrapper">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div style="text-align: center;font-size: x-large;color: red;"> {{ messages }}</div>
+        {% endif %}
+        {% endwith %}
+
+
+        <div class="text-center mt-4 name" style="text-align: center;">
+            Please Login
+            <hr>
+        </div>
+        <div class="logo">
+            <img src="{{url_for('static',filename='images/tech.jpg')}}" alt="">
+        </div>
+        <br>
+        <form class="p-3 mt-3" method="post" action="#">
+
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input type="email" name="email" id="email" placeholder="Enter your Email" required>
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="password" id="pwd" placeholder="Password" required>
+            </div>
+            <button class="btn mt-3">Login</button>
+        </form>
+        <p style="padding-top: 40px;">Don't have an Account? Signup<a href="{{url_for('signup')}}">&nbsp Here</a></p>
+    </div>
+    </form>
+</body>
+{% endblock %}

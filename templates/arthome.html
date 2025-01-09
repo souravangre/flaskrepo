@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seekingtech</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: #333;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3px 5px;
+
+        }
+
+        .navbar a {
+
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: white;
+        }
+
+        .navbar .right {
+            display: flex;
+        }
+
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: px;
+        }
+
+
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-nav {
+            margin-bottom: 10px;
+        }
+
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 0.9em;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a class="navbar-brand" href="#">
+            <img src="{{url_for('static',filename='/images/tech.jpg')}}" height="30" width="30"
+                style="border-radius: 50%;" class="align-top">
+            <div> Seeking Tech</div>
+        </a>
+        <div>
+            <marquee style="font-family: Arial, Helvetica, sans-serif;font-size: 20px;color: white;width: 400px;">
+                <p>Basic UI of a website built with Flask-A python framework for efficient web development</p>
+            </marquee>
+        </div>
+
+        <div class="right">
+            <a href="{{url_for('home')}}">Home</a>
+            <a href="{{url_for('login')}}">Login</a>
+        </div>
+    </div>
+    {% block body %}
+
+    <body style="background-color: black;">
+        <div class="container">
+            <div class="text" style="color: #ddd;">
+                <h3><span class="subheading" style="color: darkorange; font-size: 25px;">Welcome!</span></h3>
+                <h1 class="mb-4 mt-3" style="font-size: 50px;">This is a <span style="color: darkorange;">
+                        Demo Webapp</span> built with<span style="color: darkorange;"> Bootstrap</span> and<span
+                        style="color: darkorange;">
+                        Python</span></h1>
+                <div class="text" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                    <p> Explore my simple yet elegant Flask-powered website which provides user authentication, contact
+                        service and contents fetched from the database.</p>
+                    <p>I have tried to create a simple webapp using Flask framework. Signup and login to check out demo
+                        blog where i have tried briefing about the site.</p>
+                </div>
+                <a href="{{url_for('signup')}}"><button
+                        style="background-color: black;color: white; padding: 15px 30px;text-align: center;display: inline-block;font-size: 16px;border: 2px solid white; border-radius: 25px;">Signup</button></a>
+            </div>
+        </div>
+    </body>
+
+    {% endblock %}
+    <footer class="footer bg-black small text-center text-white-50">
+
+        <div class="container px-4 px-lg-5">Copyright &copy; seekingtech 2024</div>
+    </footer>
+
+</body>
+
+</html>
